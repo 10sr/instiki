@@ -27,7 +27,8 @@ Rails::Initializer.run do |config|
   end  
   config.action_controller.session = { 
     :key => "instiki_session",
-    :secret => secret
+    :secret => secret,
+    :secure => Rails.env.production?
    } 
 
   # Don't do file system STAT calls to check to see if the templates have changed.

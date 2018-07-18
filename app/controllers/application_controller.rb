@@ -130,7 +130,7 @@ class ApplicationController < ActionController::Base
 
   def password_check(password)
     if password == @web.password
-      cookies.signed[CGI.escape(@web_name)] = password
+      cookies.signed[CGI.escape(@web_name)] = { :value => password, :secure => Rails.env.production? }
       true
     else
       false

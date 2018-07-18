@@ -337,7 +337,7 @@ EOL
       the_content = params['content'].purify
       prev_content = ''
       filter_spam(the_content)
-      cookies['author'] = { :value => author_name.dup.as_bytes, :expires => Time.utc(2030) }
+      cookies['author'] = { :value => author_name.dup.as_bytes, :expires => Time.utc(2030), :secure => Rails.env.production? }
       if @page
         new_name = params['new_name'] ? params['new_name'].purify : @page_name
         new_name = @page_name if new_name.empty?
